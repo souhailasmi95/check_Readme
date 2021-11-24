@@ -4,7 +4,9 @@
 
 The XGboost training pipeline can be found in [training/pipeline.py](https://github.com/teamdatatonic/kfp-template-0/blob/839fe7e5ec7269d43ffd953e99d55d0d7bc456b7/pipelines/xgboost/training/pipeline.py) . In the training pipeline, the component [custom_train](https://github.com/teamdatatonic/kfp-template-0/blob/feature/ml-pipelines-documentation/pipelines/kfp_components/aiplatform/custom_train.py) creates a custom training job by specifying the setting that Vertex AI needs, `machine_params`, to run the python training script. 
 
-The training phase is preceded by a preprocessing phase where different transformations are applied to the training and evaluation data using SKlearn preprocessing functions. The **Preprocessing** step and the **training** step define the two components of the SKlearn pipline. 
+The training phase is preceded by a preprocessing phase where different transformations are applied to the training and evaluation data using SKlearn preprocessing functions. The **Preprocessing** step and the **training** step define the two components of the SKlearn pipline as shown in the graph below.
+
+![Training process](sklearn_pipline.png)
 
 ## Preprocessing with SKlearn
 The 3 data transformation steps considered in the `train.py` script are :
