@@ -7,24 +7,26 @@ The XGboost training pipeline can be found in [training/pipeline.py] . In the tr
 The training phase is preceded by a preprocessing phase where different transformations are applied to the training and evaluation data using SKlearn preprocessing functions.
 
 ## Preprocessing with SKlearn
-The 3 transformations considered in the [train.py] script are. The features are divided into 3 sets subject to the transformation:
+The 3 data transformation stepsconsidered in the [train.py] script are :
 
-* Centering and scaling numerical values using [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) function. In the exemple the scaled features are denoted num_feats: 
+- Centering and scaling numerical values using [StandardScaler()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) function. In the exemple the scaled features are denoted num_feats: 
 
--  "dayofweek",
-- "hourofday",
-- "trip_distance",
-- "trip_miles",
-- "trip_seconds",
+ -  `dayofweek`,
+ - `hourofday`,
+ - `trip_distance`,
+ - `trip_miles`,
+ - `trip_seconds`,
    
                                                
          
-* Encoding a chosen subset of categorical features as a one-hot numeric array using the [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) function. In the exemple, the OneHot encoded features are denoted cat_feats_onehot:
-- "payment_type"
+- Encoding a chosen subset of categorical features as a one-hot numeric array using the [OneHotEncoder()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) function. In the exemple, the OneHot encoded features are denoted cat_feats_onehot:
+
+ - `payment_type`
 
 
-* Encoding a chosen subset of categorical features as an integer array array using the [OrdinalEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html) function. In the exemple, the OneHot encoded features are denoted cat_feats_ordinal:
-- "company"
+- Encoding a chosen subset of categorical features as an integer array array using the [OrdinalEncoder()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html) function. In the exemple, the OneHot encoded features are denoted cat_feats_ordinal:
+
+ - `company`
 
 
 
