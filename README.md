@@ -6,7 +6,7 @@ The XGboost training pipeline can be found in [training/pipeline.py](https://git
 
 The training phase is preceded by a preprocessing phase where different transformations are applied to the training and evaluation data using SKlearn preprocessing functions. The **Preprocessing** step and the **training** step define the two components of the SKlearn pipline as shown in the graph below.
 
-![Training process](sklearn_pipline.png)
+![Training process](Sklearn_pipline.png)
 
 ## Preprocessing with SKlearn
 The 3 data transformation steps considered in the `train.py` script are :
