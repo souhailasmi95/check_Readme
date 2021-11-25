@@ -4,31 +4,19 @@
 
 The XGboost training pipeline can be found in [training/pipeline.py](https://github.com/teamdatatonic/kfp-template-0/blob/839fe7e5ec7269d43ffd953e99d55d0d7bc456b7/pipelines/xgboost/training/pipeline.py) . In the training pipeline, the component [custom_train](https://github.com/teamdatatonic/kfp-template-0/blob/feature/ml-pipelines-documentation/pipelines/kfp_components/aiplatform/custom_train.py) creates a custom training job by specifying the setting that Vertex AI needs, `machine_params`, to run the python training script. 
 
-The training phase is preceded by a preprocessing phase where different transformations are applied to the training and evaluation data using SKlearn preprocessing functions. The **Preprocessing** step and the **training** step define the two components of the SKlearn pipline as shown in the graph below.
+The training phase is preceded by a preprocessing phase where different transformations are applied to the training and evaluation data using scikit-learn preprocessing functions. The **preprocessing** step and the **training** step define the two components of the SKlearn pipline as shown in the graph below.
 
 ![Training process](Sklearn_pipline.png)
 
-## Preprocessing with SKlearn
+## Preprocessing with Scikit-learn
 The 3 data transformation steps considered in the `train.py` script are :
 
-- Centering and scaling numerical values using [StandardScaler()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html) function. In the exemple the scaled features are denoted `num_feats` : 
+|Encoder|Description|features|
+|:----|:----|:----|
+|[StandardScaler()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)|Centering and scaling numerical values|   `dayofweek`-`hourofday`-`trip_distance`-`trip_miles`-`trip_seconds`|
+|[OneHotEncoder()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html)|Encoding a chosen subset of categorical features as a one-hot numeric array|`payment_type`|
+|[OrdinalEncoder()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html)|Encoding a chosen subset of categorical features as an integer array|`company` |
 
-   - `dayofweek`
-   - `hourofday`
-   - `trip_distance`
-   - `trip_miles`
-   - `trip_seconds`
-   
-                                               
-         
-- Encoding a chosen subset of categorical features as a one-hot numeric array using the [OneHotEncoder()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html) function. In the exemple, the OneHot encoded features are denoted `cat_feats_onehot` :
-
-   - `payment_type`
-
-
-- Encoding a chosen subset of categorical features as an integer array using the [OrdinalEncoder()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html) function. In the exemple, the ordinal encoded features are denoted `cat_feats_ordinal` :
-
-   - `company`
 
 More processing steps can be included to the pipline. For more details consult [SKlearn.preprocessing](https://scikit-learn.org/stable/modules/preprocessing.html) webpage.
 
@@ -55,6 +43,10 @@ Two modeling artifacts are generated when we run the training Job :
   - `Eval_result` : The evaluation metrics are exported to GCS as JSON file.
 
 ## Scoring
+
+
+
+
 
 
 
