@@ -18,7 +18,7 @@ The 3 data transformation steps considered in the `train.py` script are :
 |[OrdinalEncoder()](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html)|Encoding a chosen subset of categorical features as an integer array|`company` |
 
 
-More processing steps can be included to the pipline. For more details consult [SKlearn.preprocessing](https://scikit-learn.org/stable/modules/preprocessing.html) webpage.
+More processing steps can be included to the pipline. For more details consult [Scikit-learn.preprocessing](https://scikit-learn.org/stable/modules/preprocessing.html) webpage.
 
 ## Training the model : About the XGBoost model
 
