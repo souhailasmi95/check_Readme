@@ -54,5 +54,8 @@ Two modeling artifacts are generated when we run the training Job :
   - `Model.joblib` : The model is exported to GCS file as a [joblib](https://joblib.readthedocs.io/en/latest/why.html#benefits-of-pipelines) object.
   - `Eval_result` : The evaluation metrics are exported to GCS as JSON file.
 
+## Scoring
+
+
 
 
